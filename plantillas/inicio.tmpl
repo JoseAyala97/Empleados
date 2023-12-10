@@ -2,7 +2,7 @@
 {{ template "cabecera" }}
         
    <a name="" id="" class="btn btn-primary" href="/crear" role="button">Agregar empleado</a>
-
+<br/><br/>
    <table class="table">
     <thead>
         <tr>
@@ -13,18 +13,21 @@
         </tr>
     </thead>
     <tbody>
+
+    {{ range.}}
         <tr>
-            <td>1</td>
-            <td>Jose</td>
-            <td>joseayala@outlook.es</td>
-            <td>Edit | Delete</td>
+            <td>{{.Id}}</td>
+            <td>{{.Nombre}}</td>
+            <td>{{.Correo}}</td>
+            <td>
+            <a name="" id="" class="btn btn-warning" href="/editar?id={{.Id}}" role="button">EDIT</a> 
+            | 
+            <a name="" id="" class="btn btn-danger" href="/borrar?id={{.Id}}" role="button">DELETE</a>     
+        </td>
         </tr>
-        <tr>
-            <td scope="row"></td>
-            <td></td>
-            <td></td>
-        </tr>
+    {{end}}
+
     </tbody>
    </table>
-
+{{ template "pie"}}
 {{end}}
